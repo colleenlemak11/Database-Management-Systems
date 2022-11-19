@@ -1,0 +1,1 @@
+mysqlsh --mysql -p -u clemak -h cps-database.gonzaga.edu

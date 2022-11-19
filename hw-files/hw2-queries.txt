@@ -1,0 +1,9 @@
+SELECT *
+FROM Country c
+WHERE c.inflation < 1.5 AND c.gdp > 2.0
+ORDER BY inflation ASC
+
+SELECT c.country_code, c.country_name, c.inflation, p.province_name, p.area
+FROM Country c, Province p
+WHERE p.area < 50000 AND c.inflation > 2.0
+ORDER BY c.inflation DESC, c.country_code, p.area ASC

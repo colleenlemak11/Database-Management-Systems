@@ -1,0 +1,15 @@
+#----------------------------------------------------------------------
+# CPSC 321 Specific
+#----------------------------------------------------------------------
+
+#blanket ignored files (all files with the following extensions)
+*.txt
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.out
+*.lnk
+*.tmp
+*.sw[a-p]
+.DS_Store

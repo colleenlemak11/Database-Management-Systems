@@ -91,7 +91,8 @@ CREATE TABLE Standings (
     pct DOUBLE UNSIGNED NOT NULL,
     home VARCHAR(10) NOT NULL,
 	road VARCHAR(10) NOT NULL,
-    PRIMARY KEY (season, team)
+    PRIMARY KEY (season, team),
+    FOREIGN KEY (team) REFERENCES Team (team_name)
 );
 
 CREATE TABLE Staff (

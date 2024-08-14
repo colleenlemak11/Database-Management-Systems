@@ -23,6 +23,7 @@ CREATE TABLE Ticket (
 CREATE TABLE Vendor (
 	team_name VARCHAR(50),
     ticket_plan VARCHAR(50),
+    PRIMARY KEY (team_name, ticket_plan),
     FOREIGN KEY (team_name) REFERENCES Team (team_name),
     FOREIGN KEY (ticket_plan) REFERENCES Ticket (ticket_plan)
 );
@@ -57,19 +58,20 @@ CREATE TABLE Player (
 CREATE TABLE Roster (
 	team_name VARCHAR(50),
     player_name VARCHAR(100),
+    PRIMARY KEY (team_name, player_name),
     FOREIGN KEY (team_name) REFERENCES Team (team_name),
     FOREIGN KEY (player_name) REFERENCES Player (player_name)
 );
 
 CREATE TABLE Statistics (
-	season INT UNSIGNED,
-    player_name VARCHAR(100),
-    PPG DOUBLE UNSIGNED NOT NULL,
-    RPG DOUBLE UNSIGNED NOT NULL,
-    APG DOUBLE UNSIGNED NOT NULL,
-    FG DOUBLE UNSIGNED NOT NULL,
-    three_pt DOUBLE UNSIGNED NOT NULL,
-    FT DOUBLE UNSIGNED NOT NULL,
+	season INT UNSIGNED NOT NULL,
+    player_name VARCHAR(100) NOT NULL,
+    PPG DOUBLE UNSIGNED NOT NULL, -- points per game
+    RPG DOUBLE UNSIGNED NOT NULL, -- rebounds per game
+    APG DOUBLE UNSIGNED NOT NULL, -- asists per game
+    FG DOUBLE UNSIGNED NOT NULL, -- field goal %
+    three_pt DOUBLE UNSIGNED NOT NULL, -- three point %
+    FT DOUBLE UNSIGNED NOT NULL, -- free throw %
     turnovers DOUBLE UNSIGNED NOT NULL,
     PRIMARY KEY (season, player_name)
 );
@@ -88,10 +90,11 @@ CREATE TABLE Standings (
     ranked INT UNSIGNED NOT NULL,
     W INT UNSIGNED NOT NULL,
     L INT UNSIGNED NOT NULL,
-    pct DOUBLE UNSIGNED NOT NULL,
+    pct DOUBLE UNSIGNED NOT NULL, -- % win
     home VARCHAR(10) NOT NULL,
 	road VARCHAR(10) NOT NULL,
-    PRIMARY KEY (season, team)
+    PRIMARY KEY (season, team),
+    FOREIGN KEY (team) REFERENCES Team (team_name)
 );
 
 CREATE TABLE Staff (

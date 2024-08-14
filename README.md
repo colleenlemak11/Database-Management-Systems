@@ -1,4 +1,4 @@
-# Welcome to MyCPSC321: Database Management Systems!
+# Welcome to Database Management Systems!
 
 ## About
 - Language(s): MySQL, PHP, HTML, Python
